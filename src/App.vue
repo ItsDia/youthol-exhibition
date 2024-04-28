@@ -18,20 +18,8 @@
 export default {
   data() {
     return {
-      cards: [
-        //通过读取JSON格式的数据，动态生成卡片
-          //读取JSON
-          //import data from './data.json'
-          //动态生成卡片
-          // data.forEach((item, index) => {
-          //   return {
-          //     id: index,
-          //     imageUrl: item.imageUrl,
-          //     zIndex: 0
-          //   };
-        //   })
-        // }
-      ],
+      //nodejs
+      cards: require('./components/text/cards.json'),
       maxZIndex: 1,
     };
   },
