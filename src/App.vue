@@ -17,10 +17,10 @@
             <h3>电气工程及其自动化学院</h3>
           </el-carousel-item>
           <el-carousel-item @click="goToDetails">
-            <h3>车辆工程学院</h3>
+            <h3>交通与车辆工程学院</h3>
           </el-carousel-item>
           <el-carousel-item @click="goToDetails">
-            <h3>食品工程学院</h3>
+            <h3>农业工程与食品科学学院</h3>
           </el-carousel-item>
           <el-carousel-item @click="goToDetails">
             <h3>建筑工程学院</h3>
