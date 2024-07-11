@@ -1,4 +1,4 @@
-<p style="color=red;text-align=center;font-size=large">WORK IN PROGRESS</p>
+<p style="color: red; text-align: center; font-size: large;">WORK IN PROGRESS</p>
 
 
 # for SDUT Youthol
