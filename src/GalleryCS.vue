@@ -3,14 +3,14 @@
     <a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle"><i></i></a>
     <aside id="fh5co-aside" role="complementary" class="border js-fullheight">
       <h1 id="fh5co-logo">
-        <a href="index.html">
+        <a href="../index.html">
 <!--          <img src="@/assets/images/logo-colored.png" alt="Free HTML5 Bootstrap Website Template">-->
         </a>
       </h1>
       <nav id="fh5co-main-menu" role="navigation">
         <ul>
-          <li><a href="index.html">Home</a></li>
-          <li class="fh5co-active"><a href="portfolio.html">Photos</a></li>
+          <li><a href="../index.html">Home</a></li>
+          <li class="fh5co-active"><a href="../portfolio.html">Photos</a></li>
           <li><a href="about.html">About</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
