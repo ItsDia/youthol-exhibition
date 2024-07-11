@@ -49,7 +49,7 @@
 import { ref } from 'vue';
 // import MainPageTopic from "@/components/MainPageTopic.vue";
 import { useDark, useToggle } from '@vueuse/core';
-
+import CS from "@/components/GalleryCS.vue"
 const isDark = useDark();
 const toggleDark = useToggle(isDark);
 
@@ -102,10 +102,11 @@ const carouselItems = ref([
   {title:'资环学院'},
 ]);
 
-const goToDetails = () => {
-  // TODO: Implement navigation to details/index.php
-  window.location.href = 'details/index.php';
-};
+const Routes={
+  path:'/',
+  name:SchoolofComputerScience,
+  component: CS
+}
 </script>
 
 <style scoped>
