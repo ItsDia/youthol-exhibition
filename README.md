@@ -1,4 +1,4 @@
-<center><color="red"># WORK IN PROGRESS</color></center>
+<p style="color=red;text-align=center"># WORK IN PROGRESS</p>
 
 
 # for SDUT Youthol
