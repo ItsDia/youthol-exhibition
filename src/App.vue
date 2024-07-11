@@ -49,11 +49,11 @@
 import { ref } from 'vue';
 // import MainPageTopic from "@/components/MainPageTopic.vue";
 import { useDark, useToggle } from '@vueuse/core';
-
+// import CS from "@/components/GalleryCS.vue"
 const isDark = useDark();
 const toggleDark = useToggle(isDark);
 
-import image1 from '@/assets/image/schoolOfCS.png';
+// import image1 from './assets/';
 // import image2 from '@/assets/image/schoolOfEE.png';
 // import image3 from '@/assets/image/schoolOfLaw.png';
 // import image4 from '@/assets/image/schoolOfManagement.png';
@@ -83,7 +83,7 @@ const carouselItems = ref([
   {title:'国际教育学院'},
   {title:'化工学院'},
   {title:'机械工程学院'},
-  {title:'计算机学院',image:image1},
+  {title:'计算机学院'},
   {title:'建工学院'},
   {title:'交通与车辆工程学院'},
   {title:'经济学院'},
@@ -102,10 +102,11 @@ const carouselItems = ref([
   {title:'资环学院'},
 ]);
 
-const goToDetails = () => {
-  // TODO: Implement navigation to details/index.php
-  window.location.href = 'details/index.php';
-};
+// const Routes={
+//   path:'/',
+//   name:SchoolofComputerScience,
+//   component: CS
+// }
 </script>
 
 <style scoped>
