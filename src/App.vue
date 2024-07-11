@@ -1,7 +1,5 @@
 <template>
-  <title>山东理工大学辅导员风采</title>
-
-  <div class="common-layout">
+  <el-scrollbar class="" height="100vh">
     <el-container>
       <el-header>
         <el-menu mode="horizontal">
@@ -10,15 +8,16 @@
           </div>
           <el-sub-menu>
             <template #title>选项</template>
-          <div class="header-buttons">
-            <el-button type="primary">
-              <el-link type="default" href="https://youth.sdut.edu.cn">返回青春在线</el-link>
-            </el-button>
-            <el-button type="primary" @click="toggleDark()">
-              <i :class="isDark ? 'el-icon-sunny' : 'el-icon-moon'"></i>
+            <el-menu-item type="primary">
+              <el-link :underline="false" type="default" href="https://youth.sdut.edu.cn">返回青春在线</el-link>
+            </el-menu-item>
+            <el-menu-item @click="toggleDark()">
+              <el-icon :color="isDark ? '#fff' : '#000'">
+                <Sunny v-if="isDark"/>
+                <Moon v-else />
+              </el-icon>
               {{ isDark ? "浅色" : "深色" }}模式
-            </el-button>
-          </div>
+            </el-menu-item>
           </el-sub-menu>
         </el-menu>
       </el-header>
@@ -27,7 +26,7 @@
         <el-carousel
             class = "customedCarousel"
             height="79vh"
-            interval="40000"
+            interval=40000
             type="card"
             indicator-position="none"
         >
@@ -42,18 +41,19 @@
 
       <el-footer class="customedFooter">Youthol © 2001-2024 Created by CSBigCaptain and ItsDia</el-footer>
     </el-container>
-  </div>
+  </el-scrollbar>
 </template>
 
 <script setup>
 import { ref } from 'vue';
 // import MainPageTopic from "@/components/MainPageTopic.vue";
 import { useDark, useToggle } from '@vueuse/core';
-// import CS from "@/components/GalleryCS.vue"
+import {Moon, Sunny} from "@element-plus/icons-vue";
+
 const isDark = useDark();
 const toggleDark = useToggle(isDark);
 
-// import image1 from './assets/';
+import image1 from '@/assets/image/schoolOfCS.png';
 // import image2 from '@/assets/image/schoolOfEE.png';
 // import image3 from '@/assets/image/schoolOfLaw.png';
 // import image4 from '@/assets/image/schoolOfManagement.png';
@@ -83,7 +83,7 @@ const carouselItems = ref([
   {title:'国际教育学院'},
   {title:'化工学院'},
   {title:'机械工程学院'},
-  {title:'计算机学院'},
+  {title:'计算机学院',image:image1},
   {title:'建工学院'},
   {title:'交通与车辆工程学院'},
   {title:'经济学院'},
@@ -102,11 +102,10 @@ const carouselItems = ref([
   {title:'资环学院'},
 ]);
 
-// const Routes={
-//   path:'/',
-//   name:SchoolofComputerScience,
-//   component: CS
-// }
+const goToDetails = () => {
+  // TODO: Implement navigation to details/index.php
+  window.location.href = 'details/index.php';
+};
 </script>
 
 <style scoped>
@@ -130,7 +129,6 @@ body{
 }
 
 .el-header {
-  background-color: #ffffff;
   box-shadow: 0 2px 8px rgba(0,0,0,.1);
 }
 
@@ -141,25 +139,30 @@ body{
   text-align: center;
   border-top: 2px solid #4C4D4F;
 }
+
 .LOGO{
   font-size: 23px;
+  font-weight: bolder;
   margin-right: auto;
   display: flex;
   align-items: center;
-  letter-spacing: 4px;
+  letter-spacing: 1px;
   transition-duration: 0.5s;
 }
-.LOGO:hover
+
+/*.LOGO:hover
 {
   color: #409EFF;
   transition-duration: 0.5s;
   font-size: 25px;
-}
+}*/
+
 .header-buttons {
   display: flex;
   align-items: center;
   margin-left: auto;
 }
+
 .el-button {
   border-radius: 20px;
   padding: 10px 20px;
