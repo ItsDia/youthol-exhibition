@@ -34,7 +34,7 @@
         >
           <el-carousel-item
               v-for="(item, index) in carouselItems" :key="index">
-            <router-link :to="{ path: `/gallery/${item.id}` }" class="customedRouter">
+            <router-link :to="{ path: `/gallery/${item.id}`, query:{ name:`${item.title}`} }" class="customedRouter">
               <div class="carousel-content" :style="{ backgroundImage: `url(${item.image})` }">
               <h3>{{ item.title }}</h3>
             </div>
@@ -59,8 +59,7 @@ export default {
 }
 </script>
 <script setup>
-import {computed, ref} from 'vue';
-// import MainPageTopic from "@/components/MainPageTopic.vue";
+import {ref} from 'vue';
 import {useDark, useToggle} from '@vueuse/core';
 import {Moon, Sunny} from "@element-plus/icons-vue";
 const isDark = useDark();
