@@ -59,8 +59,7 @@ export default {
 }
 </script>
 <script setup>
-import {computed, ref} from 'vue';
-// import MainPageTopic from "@/components/MainPageTopic.vue";
+import {ref} from 'vue';
 import {useDark, useToggle} from '@vueuse/core';
 import {Moon, Sunny} from "@element-plus/icons-vue";
 const isDark = useDark();

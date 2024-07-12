@@ -1,23 +1,27 @@
 <template>
   <div id="fh5co-page">
-    <a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle"><i></i></a>
     <aside id="fh5co-aside" role="complementary" class="border js-fullheight">
-      这里用来显示每个学院的LOGO
-      <h1 id="fh5co-logo">
-        <a href="../index.html">
-          <img src="@/components/images/logo-colored.png" alt="Free HTML5 Bootstrap Website Template">
-        </a>
-        <hr style="height: 1px; background-color: grey; border: none;">
-      </h1>
+      <div class="btnHub">
+        <router-link :to="{ path: `/` }">
+          <el-button>
+            <el-icon size="15" style="margin-right: 5px;"><House /></el-icon>
+            首页
+          </el-button>
+        </router-link>
+        <el-button @click="toggleDark()">
+          <el-icon size="15" color="#82B351">
+            <Sunny v-if="isDark" />
+            <Moon v-else />
+          </el-icon>
+        </el-button>
+      </div>
+      <h1 id="fh5co-logo">计算机科学与技术学院</h1>
+      <div class="college-logo"><img src="" alt=""></div>
       <nav id="fh5co-main-menu" role="navigation">
-        <ul>
-          <p><a href="#" class="btn btn-primary btn-outline">返回</a></p>
-          这里太空了，试着加点啥东西
-        </ul>
       </nav>
-
       <div class="fh5co-footer">
         <p><small>&copy; 2024 Blend Free HTML5. All Rights Reserved.</small></p>
+        <p><small>Remade by CSBigCaptain and ItsDia</small></p>
       </div>
     </aside>
 
@@ -26,53 +30,49 @@
         <div v-if="content">
         <a v-for="image in images" :key="image.id" class="gallery-item" href="single.html">
           <img :src="image.src" :alt="image.title">
-          <span class="overlay">
+          <div class="overlay">
             <h2>{{ image.title }}</h2>
             <span>{{ image.count }} Photos</span>
-          </span>
+          </div>
         </a>
         </div>
         <div v-else>
-                <div class="fh5co-narrow-content">
-                  <div class="row">
-                    <div class="col-md-4 animate-box" data-animate-effect="fadeInLeft">
-                      <h1 class="fh5co-heading-colored">没有找到相关内容</h1>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-md-12 animate-box" data-animate-effect="fadeInLeft">
-                      <p class="fh5co-lead">请管理员在./public/images中添加 {{id}} 相关图片.</p>
-                    </div>
-                  </div>
-                </div>
+          <div class="fh5co-narrow-content">
+            <div class="row">
+              <div class="col-md-4 animate-box" data-animate-effect="fadeInLeft">
+                <h1 class="fh5co-heading-colored">没有找到相关内容</h1>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12 animate-box" data-animate-effect="fadeInLeft">
+                <p class="fh5co-lead">请管理员在./public/images中添加 {{id}} 相关图片.</p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-
-<!--      <div class="fh5co-narrow-content">-->
-<!--        <div class="row">-->
-<!--          <div class="col-md-4 animate-box" data-animate-effect="fadeInLeft">-->
-<!--            <h1 class="fh5co-heading-colored">Get in touch</h1>-->
-<!--          </div>-->
-<!--        </div>-->
-<!--        <div class="row">-->
-<!--          <div class="col-md-12 animate-box" data-animate-effect="fadeInLeft">-->
-<!--            <p class="fh5co-lead">Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>-->
-<!--            <p><a href="#" class="btn btn-primary btn-outline">Learn More</a></p>-->
-<!--          </div>-->
-<!--        </div>-->
-<!--      </div>-->
     </div>
   </div>
 </template>
 
+<script setup>
+import {useDark, useToggle} from "@vueuse/core";
+
+const isDark = useDark()
+const toggleDark = useToggle(isDark)
+</script>
+
+
 <script>
 import axios from 'axios';
+import {ArrowLeft, House, Sunny, Moon} from "@element-plus/icons-vue";
 
 export default {
+  components: {Sunny, House, ArrowLeft},
   props: ['id'],
-  created() {
-    console.log(this.id);
-  },
+  // created() {
+  //   console.log(this.id);
+  // },
   data() {
     return {
       content: null,
@@ -95,7 +95,7 @@ export default {
       try {
         const response = await axios.get(`/data/${id}.json`);
         this.content = response.data;
-        console.log(this.content); // 确认数据是否正确
+        // console.log(this.content); // 确认数据是否正确
       } catch (error) {
         this.error = error;
         this.content = null;
@@ -152,5 +152,20 @@ export default {
   transform: translateY(0);
 }
 
+#fh5co-aside .btnHub {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 10%;
+}
+
+.btnHub .el-button {
+  border: #82B351 solid 2px;
+}
+
+.college-logo {
+  width: 80%;
+  margin: 0 auto;
+}
 /* Add any additional component-specific styles here */
 </style>
