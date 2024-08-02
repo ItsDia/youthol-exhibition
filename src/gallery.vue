@@ -9,7 +9,7 @@
           </el-button>
         </router-link>
         <el-button @click="toggleDark()">
-          <el-icon size="15" color="#82B351">
+          <el-icon size="15" color  ="#82B351">
             <Sunny v-if="isDark" />
             <Moon v-else />
           </el-icon>
